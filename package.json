@@ -28,5 +28,9 @@
 		"vite": "^5.0.3",
 		"vitest": "^1.2.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@crossmint/client-sdk-base": "^1.1.13",
+		"@crossmint/client-sdk-vanilla-ui": "^1.1.8"
+	}
 }
