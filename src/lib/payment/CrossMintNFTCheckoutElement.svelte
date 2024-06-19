@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '@crossmint/client-sdk-vanilla-ui';
     import type {CrossmintEvent} from '@crossmint/client-sdk-base';
+	import {randomSalt} from './utils';
+	import { writable } from 'svelte/store';
 
 	const collectionId = '4bc0fae8-1e17-42fe-94ac-1ba79c41d640';
 	const projectId = '2531ad05-3963-4364-841f-4cd9013f09fa';
@@ -8,7 +10,7 @@
 		totalPrice: '0.001',
 		chain: '42',
 		lock: '0x0000000000000000000000000000000000000001',
-		salt: '4',
+		salt:  randomSalt(),
 		data: '0x',
 		quantity: '1'
 	};
@@ -16,8 +18,13 @@
 
 	const checkoutProps = { paymentMethods: ['fiat'] };
 
+	const events = writable<string[]>([]);
 	function onEvent(event: CrossmintEvent) {
-		console.log('default', event);
+		console.log('CrossmintEvent', event);
+		events.update(v => {
+			v.push(event.type);
+			return v;
+		})
 	}
 
 	const email = 'ronansandford@yahoo.fr';
@@ -59,6 +66,12 @@
 		/>
 	</div>
 </div>
+
+<ul>
+	{#each $events as event}
+	<li>{event}</li>
+	{/each}
+</ul>
 
 <style>
 	.payment-wrapper {

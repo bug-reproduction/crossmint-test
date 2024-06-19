@@ -11,6 +11,9 @@ dependencies:
   '@crossmint/client-sdk-vanilla-ui':
     specifier: ^1.1.8
     version: 1.1.8
+  '@noble/hashes':
+    specifier: ^1.4.0
+    version: 1.4.0
 
 devDependencies:
   '@playwright/test':
@@ -350,6 +353,11 @@ packages:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.0
+    dev: false
+
+  /@noble/hashes@1.4.0:
+    resolution: {integrity: sha512-V1JJ1WTRUqHHrOSh597hURcMqVKVGL/ea3kv0gSnEdsEZ0/+VyPghM1lMNGc00z7CIQorSvbKpuJkxvuHbvdbg==}
+    engines: {node: '>= 16'}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
